@@ -1,0 +1,109 @@
+{
+    "$schema": "http://json.schemastore.org/install",
+    "resources": {
+        "body": [{
+            "type": "style",
+            "src": "./build/styles.css"
+        }, {
+            "type": "script",
+            "src": "./build/index.js"
+        }]
+    },
+    "preview": {
+        "handlers": [{
+            "options": ["_default"],
+            "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+        }]
+    },
+    "options": {
+        "properties": {
+            "static": {
+                "title": "Static badges",
+                "type": "array",
+                "order": 0,
+                "items": {
+                    "title": "Item",
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "title": "Badge location",
+                            "description": "Where should the badge appear?",
+                            "order": 0,
+                            "type": "object",
+                            "format": "element",
+                            "default": {
+                                "method": "prepend"
+                            }
+                        },
+                        "label": {
+                            "order": 0,
+                            "title": "Label",
+                            "type": "string"
+                        },
+                        "message": {
+                            "order": 0,
+                            "title": "Message",
+                            "type": "string"
+                        },
+                        "colour": {
+                            "order": 0,
+                            "title": "Color",
+                            "type": "string",
+                            "format": "color",
+                            "default": "#000000"
+                        },
+                        "lefturl": {
+                            "title": "Left URL",
+                            "type": "string",
+                            "format": "url",
+                            "order": 0,
+                            "showIf": {
+                              "style": "social"
+                            }
+                        },
+                        "righturl": {
+                            "title": "Right URL",
+                            "type": "string",
+                            "format": "url",
+                            "order": 0,
+                            "showIf": {
+                              "style": "social"
+                            }
+                        }
+                    }
+                }
+            },
+            "style": {
+                "order": 0,
+                "title": "Style",
+                "type": "string",
+                "default": "flat",
+                "enum": [
+                    "plastic",
+                    "flat",
+                    "flat-square",
+                    "for-the-badge",
+                    "popout",
+                    "popout-square",
+                    "social"
+                ],
+                "enumNames": {
+                    "plastic": "Plastic",
+                    "flat": "Flat",
+                    "flat-square": "Flat square",
+                    "for-the-badge": "For the badge",
+                    "popout": "Popout",
+                    "popout-square": "Square popout",
+                    "social": "Social"
+                }
+            },
+            "cache": {
+                "title": "Badge cache duration (seconds)",
+                "type": "integer",
+                "order": 0,
+                "minimum": 0,
+                "default": 3600
+            }
+        }
+    }
+}

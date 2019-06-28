@@ -1,0 +1,41 @@
+{
+    "name": "cloudflare-badges-app",
+    "description": "Add badges to your website.",
+    "private": true,
+    "version": "0.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "yarn dev:setup && yarn dev:webpack",
+        "dev:webpack": "webpack --watch --colors",
+        "dev:setup": "yarn lint",
+        "build": "yarn lint && yarn build:webpack",
+        "build:webpack": "NODE_ENV=production webpack --colors",
+        "lint": "eslint --ext .js src"
+    },
+    "dependencies": {
+        "jquery": "^3.4.1"
+    },
+    "devDependencies": {
+        "@types/jquery": "^3.3.30",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^10.0.1",
+        "babel-loader": "^7.0.0",
+        "babel-preset-env": "^1.7.0",
+        "css-loader": "^1.0.1",
+        "eslint": "^5.3.0",
+        "eslint-config-airbnb-base": "13.1.0",
+        "eslint-config-google": "^0.13.0",
+        "eslint-config-prettier": "2.9.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-watch": "^4.0.2",
+        "extract-loader": "^3.0.0",
+        "file-loader": "^2.0.0",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.24.0",
+        "webpack-cli": "^3.1.2",
+        "yarn-run-all": "^3.1.1"
+    },
+    "repository": "https://github.com/Richienb/cloudflare-badges-app.git",
+    "author": "Richie Bendall <richiebendall@gmail.com>",
+    "license": "MIT"
+}

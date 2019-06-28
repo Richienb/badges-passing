@@ -1,1 +1,3 @@
-# cloudflare-badges-app
+# CloudFlare Badges App
+
+Add badges to your website.
