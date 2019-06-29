@@ -2,7 +2,7 @@
     "name": "cloudflare-badges-app",
     "description": "Add badges to your website.",
     "private": true,
-    "version": "0.0.0",
+    "version": "0.0.1",
     "main": "index.js",
     "scripts": {
         "start": "yarn dev:setup && yarn dev:webpack",

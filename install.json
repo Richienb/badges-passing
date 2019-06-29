@@ -17,8 +17,8 @@
     },
     "options": {
         "properties": {
-            "static": {
-                "title": "Static badges",
+            "badges": {
+                "title": "Badges",
                 "type": "array",
                 "order": 0,
                 "items": {
@@ -38,12 +38,51 @@
                         "label": {
                             "order": 0,
                             "title": "Label",
-                            "type": "string"
+                            "type": "string",
+                            "default": "Label title"
+                        },
+                        "type": {
+                            "order": 0,
+                            "title": "Badge Type",
+                            "type": "string",
+                            "default": "static",
+                            "enum": [
+                                "static", "dynamic"
+                            ],
+                            "enumNames": {
+                                "static": "Static",
+                                "dynamic": "Dynamic"
+                            }
                         },
                         "message": {
                             "order": 0,
                             "title": "Message",
-                            "type": "string"
+                            "type": "string",
+                            "default": "Label content",
+                            "showIf": {
+                                "badges[].type": "static"
+                            }
+                        },
+                        "dataurl": {
+                            "order": 0,
+                            "title": "Data URL",
+                            "description": "This is the url to your external JSON file/API.",
+                            "type": "string",
+                            "format": "url",
+                            "placeholder": "https://jsonplaceholder.typicode.com/posts/1",
+                            "showIf": {
+                                "badges[].type": "dynamic"
+                            }
+                        },
+                        "dataquery": {
+                            "order": 0,
+                            "title": "Data Query",
+                            "description": "This is the path of the data from the file.",
+                            "type": "string",
+                            "placeholder": "userId",
+                            "showIf": {
+                                "badges[].type": "dynamic"
+                            }
                         },
                         "colour": {
                             "order": 0,
@@ -52,13 +91,24 @@
                             "format": "color",
                             "default": "#000000"
                         },
+                        "logo": {
+                            "order": 0,
+                            "title": "Logo",
+                            "description": "Specify any logo from <a href='https://simpleicons.org/'>simple-icons</a>.",
+                            "type": "string",
+                            "placeholder": "cloudflare",
+                            "showIf": {
+                                "INSTALL_PRODUCT.id": "pro"
+                            }
+                        },
                         "lefturl": {
                             "title": "Left URL",
                             "type": "string",
                             "format": "url",
                             "order": 0,
                             "showIf": {
-                              "style": "social"
+                                "style": "social",
+                                "INSTALL_PRODUCT.id": "pro"
                             }
                         },
                         "righturl": {
@@ -67,7 +117,8 @@
                             "format": "url",
                             "order": 0,
                             "showIf": {
-                              "style": "social"
+                                "style": "social",
+                                "INSTALL_PRODUCT.id": "pro"
                             }
                         }
                     }
@@ -102,7 +153,10 @@
                 "type": "integer",
                 "order": 0,
                 "minimum": 0,
-                "default": 3600
+                "default": 3600,
+                "showIf": {
+                    "INSTALL_PRODUCT.id": "pro"
+                }
             }
         }
     }
